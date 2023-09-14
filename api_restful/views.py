@@ -43,7 +43,7 @@ def procesarFoto(request):
         respuesta = inferencia_yolo(imagen, ruta_yolov5, ruta_yolov5_pesos, 1024)
         
         #Enviar la respuesta al cliente
-        return JsonResponse({"respuesta": respuesta})
+        return JsonResponse(respuesta, safe=False)
     else:
         return JsonResponse({"respuesta": "Método no soportado"})
 
